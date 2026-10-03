@@ -69,6 +69,83 @@
           linear-gradient(to right, rgba(38, 98, 16, 0.12) 1px, transparent 1px),
           linear-gradient(to bottom, rgba(38, 98, 16, 0.12) 1px, transparent 1px);
       }
+
+      /* Warm editorial theme — colors and typography only.
+         The original layout, sections, spacing, and content remain unchanged. */
+      body,
+      body.bg-\[\#031800\] {
+        background-color: #faf7f2 !important;
+        color: #292524 !important;
+      }
+
+      .code-font,
+      h1,
+      h2,
+      h3 {
+        font-family: Georgia, "Times New Roman", serif !important;
+      }
+
+      .grid-pattern {
+        background-image:
+          linear-gradient(to right, rgba(163, 61, 39, 0.055) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(163, 61, 39, 0.055) 1px, transparent 1px) !important;
+      }
+
+      [class*="bg-[#063B00]"] {
+        background-color: rgba(255, 255, 255, 0.88) !important;
+      }
+
+      [class*="border-[#266210]"] {
+        border-color: #ddd2c6 !important;
+      }
+
+      [class*="text-[#E1E100]"],
+      [class*="text-[#90B800]"] {
+        color: #a33d27 !important;
+      }
+
+      .text-slate-100 {
+        color: #292524 !important;
+      }
+
+      .text-slate-300,
+      .text-slate-400 {
+        color: #675b53 !important;
+      }
+
+      [class*="selection:bg-[#90B800]"]::selection {
+        background-color: #a33d27 !important;
+        color: #ffffff !important;
+      }
+
+      .glow-border {
+        box-shadow: none !important;
+        border-color: #ddd2c6 !important;
+      }
+
+      .glow-border:hover {
+        box-shadow: 0 10px 30px rgba(103, 91, 83, 0.10) !important;
+        border-color: #a33d27 !important;
+      }
+
+      a[class*="border-[#90B800]"] {
+        background-color: #a33d27 !important;
+        border-color: #a33d27 !important;
+        color: #ffffff !important;
+      }
+
+      a[class*="border-[#90B800]"]:hover {
+        background-color: #81301f !important;
+        color: #ffffff !important;
+      }
+
+      [class*="decoration-[#90B800]"] {
+        text-decoration-color: #a33d27 !important;
+      }
+
+      footer[class*="bg-[#063B00]"] {
+        background-color: #f2ebe3 !important;
+      }
     </style>
   </head>
   <body class="min-h-screen bg-[#031800] text-slate-100 antialiased selection:bg-[#90B800] selection:text-[#063B00] relative">
@@ -149,13 +226,12 @@
             </div>
             <!-- Hero Profile Image -->
             <div class="flex-shrink-0 relative">
-              <div class="w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-2xl overflow-hidden border-2 border-[#90B800] shadow-2xl shadow-[#063B00] bg-[#063B00]">
-                <!-- EDIT: PROFILE_IMAGE -->
+              <div class="w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-2xl overflow-hidden border-2 border-[#DDD2C6] shadow-xl shadow-black/20 bg-white">
                 <img src="Profile.png" alt="Profile image" class="w-full h-full object-cover">
               </div>
               <!-- Decorative tech corner accent -->
-              <div class="absolute -bottom-3 -right-3 w-8 h-8 border-r-2 border-b-2 border-[#E1E100] pointer-events-none"></div>
-              <div class="absolute -top-3 -left-3 w-8 h-8 border-l-2 border-t-2 border-[#E1E100] pointer-events-none"></div>
+              <div class="absolute -bottom-3 -right-3 w-8 h-8 border-r-2 border-b-2 border-[#A33D27] pointer-events-none"></div>
+              <div class="absolute -top-3 -left-3 w-8 h-8 border-l-2 border-t-2 border-[#A33D27] pointer-events-none"></div>
             </div>
           </div>
         </section>
