@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!---favicon---->
+
+    <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+
+    <title>Daryl Vincent SJ. Gonzales - Data Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                darkest: '#063B00',
+                deep: '#266210',
+                accent: '#90B800',
+                highlight: '#E1E100',
+              }
+            },
+            fontFamily: {
+              mono: ['"Fira Code"', 'monospace'],
+              sans: ['"Inter"', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #031800;
+        color: #E2E8F0;
+        font-family: 'Inter', sans-serif;
+      }
+
+      .code-font {
+        font-family: 'Fira Code', monospace;
+      }
+
+      .glow-border {
+        box-shadow: 0 0 15px rgba(144, 184, 0, 0.15);
+        border: 1px solid #266210;
+      }
+
+      .glow-border:hover {
+        box-shadow: 0 0 25px rgba(225, 225, 0, 0.25);
+        border-color: #90B800;
+      }
+
+      .grid-pattern {
+        background-size: 32px 32px;
+        background-image:
+          linear-gradient(to right, rgba(38, 98, 16, 0.12) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(38, 98, 16, 0.12) 1px, transparent 1px);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-[#031800] text-slate-100 antialiased selection:bg-[#90B800] selection:text-[#063B00] relative">
+    <!-- Tech Background Grid Overlay -->
+    <div class="fixed inset-0 grid-pattern pointer-events-none z-0"></div>
+    <div class="relative z-10 flex flex-col min-h-screen">
+      <!-- Navigation Section -->
+      <header class="sticky top-0 z-50 backdrop-blur-md bg-[#063B00]/90 border-b border-[#266210]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <!-- Terminal Decorative Icon -->
+            <svg class="w-6 h-6 text-[#E1E100]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <!-- EDIT: NAVBAR_BRAND -->
+            <a href="#hero" class="text-xl font-bold tracking-tight text-[#E1E100] code-font hover:text-[#90B800] transition-colors">FCBPortfolio</a>
+          </div>
+          <nav class="hidden md:flex items-center space-x-8 code-font text-sm">
+            <a href="#about" class="text-slate-300 hover:text-[#E1E100] transition-colors flex items-center gap-1.5">
+              <span class="text-[#90B800]">01.</span>About </a>
+            <a href="#projects" class="text-slate-300 hover:text-[#E1E100] transition-colors flex items-center gap-1.5">
+              <span class="text-[#90B800]">02.</span>Projects </a>
+            <a href="#skills" class="text-slate-300 hover:text-[#E1E100] transition-colors flex items-center gap-1.5">
+              <span class="text-[#90B800]">03.</span>Skills </a>
+            <a href="#contact" class="text-slate-300 hover:text-[#E1E100] transition-colors flex items-center gap-1.5">
+              <span class="text-[#90B800]">04.</span>Contact </a>
+          </nav>
+          <!-- Mobile Menu Trigger Icon (Simple Decorative / Functional Hook) -->
+          <div class="md:hidden flex items-center">
+            <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-[#90B800] hover:text-[#E1E100] p-1.5 border border-[#266210] rounded" aria-label="Toggle navigation">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-3 pb-5 space-y-3 bg-[#063B00] border-b border-[#266210] code-font text-sm">
+          <a href="#about" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block py-2 text-slate-300 hover:text-[#E1E100]">
+            <span class="text-[#90B800]">01. </span>About </a>
+          <a href="#projects" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block py-2 text-slate-300 hover:text-[#E1E100]">
+            <span class="text-[#90B800]">02. </span>Projects </a>
+          <a href="#skills" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block py-2 text-slate-300 hover:text-[#E1E100]">
+            <span class="text-[#90B800]">03. </span>Skills </a>
+          <a href="#contact" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block py-2 text-slate-300 hover:text-[#E1E100]">
+            <span class="text-[#90B800]">04. </span>Contact </a>
+        </div>
+      </header>
+      <main class="flex-grow">
+        <!-- Landing / Hero Section -->
+        <section id="hero" class="py-20 lg:py-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#266210]/40">
+          <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16">
+            <div class="flex-1 text-center lg:text-left">
+              <!-- Decorative Profession Badge -->
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#063B00] border border-[#266210] text-[#90B800] text-xs font-mono mb-6">
+                <svg class="w-4 h-4 text-[#E1E100]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                <span>Computer Science Portfolio</span>
+              </div>
+              <!-- EDIT: HERO_NAME -->
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#E1E100] code-font tracking-tight mb-4"> Daryl Gonzales </h1>
+              <!-- EDIT: HERO_TITLE -->
+              <h2 class="text-xl sm:text-2xl lg:text-3xl font-medium text-[#90B800] code-font mb-6"> Data Analyst</h2>
+              <!-- EDIT: HERO_INTRODUCTION -->
+              <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-8"> I’m a Computer Science student specializing in Data Science, with a passion for technology, problem-solving, and turning data into meaningful insights. 
+                I enjoy working with Python, data analysis, and visualization, while continuously expanding my skills through hands-on projects. 
+                I’m driven by curiosity and enjoy building practical, data-driven solutions to real-world problems. </p>
+              <!-- Only Allowed CTA: Link to Projects -->
+              <div class="flex justify-center lg:justify-start">
+                <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#063B00] text-[#E1E100] font-mono text-sm font-semibold border border-[#90B800] hover:bg-[#90B800] hover:text-[#063B00] transition-all duration-200 shadow-lg shadow-[#063B00]/50">
+                  <span>View Projects</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <!-- Hero Profile Image -->
+            <div class="flex-shrink-0 relative">
+              <div class="w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-2xl overflow-hidden border-2 border-[#90B800] shadow-2xl shadow-[#063B00] bg-[#063B00]">
+                <!-- EDIT: PROFILE_IMAGE -->
+                <img src="Profile.png" alt="Profile image" class="w-full h-full object-cover">
+              </div>
+              <!-- Decorative tech corner accent -->
+              <div class="absolute -bottom-3 -right-3 w-8 h-8 border-r-2 border-b-2 border-[#E1E100] pointer-events-none"></div>
+              <div class="absolute -top-3 -left-3 w-8 h-8 border-l-2 border-t-2 border-[#E1E100] pointer-events-none"></div>
+            </div>
+          </div>
+        </section>
+        <!-- About Section -->
+        <section id="about" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#266210]/40">
+          <div class="flex items-center gap-3 mb-8">
+            <svg class="w-6 h-6 text-[#E1E100]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            <h2 class="text-2xl sm:text-3xl font-bold code-font text-[#E1E100] tracking-wide">About</h2>
+            <div class="h-px bg-[#266210] flex-grow ml-4"></div>
+          </div>
+          <div class="bg-[#063B00]/40 rounded-xl p-6 sm:p-8 border border-[#266210] glow-border">
+            <!-- EDIT: ABOUT_TEXT -->
+            <p class="text-slate-300 text-base sm:text-lg leading-relaxed">  
+              I'm a Computer Science student specializing in Data Science, with a strong
+              interest in technology, problem-solving, and discovering meaningful insights
+              from data. I enjoy learning how data can be analyzed and transformed into
+              practical solutions for real-world problems.
+              <br><br>
+              I'm passionate about continuously improving my skills through hands-on
+              projects and exploring new technologies. As I grow in the field of Computer
+              Science, I aim to strengthen my knowledge in data analysis, programming, and
+              machine learning while creating useful and meaningful data-driven solutions.</p>
+          </div>
+        </section>
+        <!-- Projects / Work Samples Section -->
+        <section id="projects" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#266210]/40">
+          <div class="flex items-center gap-3 mb-10">
+            <svg class="w-6 h-6 text-[#E1E100]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+            </svg>
+            <h2 class="text-2xl sm:text-3xl font-bold code-font text-[#E1E100] tracking-wide">Projects / Work Samples</h2>
+            <div class="h-px bg-[#266210] flex-grow ml-4"></div>
+          </div>
+          <!-- Exactly 3 Reusable Project Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project Card 1 -->
+            <div class="bg-[#063B00]/40 rounded-xl overflow-hidden border border-[#266210] glow-border flex flex-col transition-all duration-300">
+              <div class="aspect-video w-full overflow-hidden bg-[#063B00] border-b border-[#266210]">
+                <!-- EDIT: PROJECT_1_IMAGE -->
+                <img src="project 1.png" alt="Project image" class="w-full h-full object-cover">
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <!-- EDIT: PROJECT_1_TITLE -->
+                <h3 class="text-xl font-bold code-font text-[#E1E100] mb-3">Student Performance Analysis</h3>
+                <!-- EDIT: PROJECT_1_DESCRIPTION -->
+                <p class="text-slate-300 text-sm leading-relaxed mb-6 flex-grow">A data analysis project that explores student performance and identifies patterns that may influence academic results. 
+                  It uses data cleaning, analysis, and visualization to present meaningful insights.</p>
+                <div>
+                  <!-- EDIT: PROJECT_1_LINK -->
+                  <a href="#" class="inline-flex items-center gap-2 text-sm font-mono text-[#90B800] hover:text-[#E1E100] transition-colors group">
+                    <span>Project Link</span>
+                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Project Card 2 -->
+            <div class="bg-[#063B00]/40 rounded-xl overflow-hidden border border-[#266210] glow-border flex flex-col transition-all duration-300">
+              <div class="aspect-video w-full overflow-hidden bg-[#063B00] border-b border-[#266210]">
+                <!-- EDIT: PROJECT_2_IMAGE -->
+                <img src="project 2.png" alt="Project image" class="w-full h-full object-cover">
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <!-- EDIT: PROJECT_2_TITLE -->
+                <h3 class="text-xl font-bold code-font text-[#E1E100] mb-3">Movie Recommendation System</h3>
+                <!-- EDIT: PROJECT_2_DESCRIPTION -->
+                <p class="text-slate-300 text-sm leading-relaxed mb-6 flex-grow">A machine learning project that recommends movies based on user preferences and similarities between films. 
+                  It demonstrates how data and algorithms can create personalized recommendations.</p>
+                <div>
+                  <!-- EDIT: PROJECT_2_LINK -->
+                  <a href="#" class="inline-flex items-center gap-2 text-sm font-mono text-[#90B800] hover:text-[#E1E100] transition-colors group">
+                    <span>Project Link</span>
+                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Project Card 3 -->
+            <div class="bg-[#063B00]/40 rounded-xl overflow-hidden border border-[#266210] glow-border flex flex-col transition-all duration-300">
+              <div class="aspect-video w-full overflow-hidden bg-[#063B00] border-b border-[#266210]">
+                <!-- EDIT: PROJECT_3_IMAGE -->
+                <img src="project 3.png" alt="Project image" class="w-full h-full object-cover">
+              </div>
+              <div class="p-6 flex flex-col flex-grow">
+                <!-- EDIT: PROJECT_3_TITLE -->
+                <h3 class="text-xl font-bold code-font text-[#E1E100] mb-3">Sales Data Dashboard</h3>
+                <!-- EDIT: PROJECT_3_DESCRIPTION -->
+                <p class="text-slate-300 text-sm leading-relaxed mb-6 flex-grow">An interactive data visualization project that analyzes sales performance, trends, and key metrics.
+                   It transforms raw sales data into clear visual insights for better decision-making.</p>
+                <div>
+                  <!-- EDIT: PROJECT_3_LINK -->
+                  <a href="#" class="inline-flex items-center gap-2 text-sm font-mono text-[#90B800] hover:text-[#E1E100] transition-colors group">
+                    <span>Project Link</span>
+                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Skills / Tools Section -->
+        <section id="skills" class="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#266210]/40">
+          <div class="flex items-center gap-3 mb-10">
+            <svg class="w-6 h-6 text-[#E1E100]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            <h2 class="text-2xl sm:text-3xl font-bold code-font text-[#E1E100] tracking-wide">Skills / Tools</h2>
+            <div class="h-px bg-[#266210] flex-grow ml-4"></div>
+          </div>
+          <!-- Exactly 2 Cards: Skills & Tools / Technologies -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Card 1: Skills -->
+            <div class="bg-[#063B00]/40 rounded-xl p-6 sm:p-8 border border-[#266210] glow-border">
+              <div class="flex items-center gap-3 mb-6 pb-4 border-b border-[#266210]">
+                <svg class="w-5 h-5 text-[#90B800]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h3 class="text-xl font-bold code-font text-[#E1E100]">Skills</h3>
+              </div>
+              <!-- EDIT: SKILLS_LIST -->
+              <ul class="space-y-3 font-mono text-slate-300">
+                <!-- EDIT: SKILL_ITEM_1 -->
+                <li class="flex items-center gap-2">
+                  <span class="text-[#90B800]">&gt;</span>
+                  <span>Data Analysis</span>
+                </li>
+                <!-- EDIT: SKILL_ITEM_2 -->
+                <li class="flex items-center gap-2">
+                  <span class="text-[#90B800]">&gt;</span>
+                  <span>Machine Learning</span>
+                </li>
+                <!-- EDIT: SKILL_ITEM_3 -->
+                <li class="flex items-center gap-2">
+                  <span class="text-[#90B800]">&gt;</span>
+                  <span>Data Cleaning & Preparation</span>
+                </li>
+              </ul>
+            </div>
+            <!-- Card 2: Tools / Technologies -->
+            <div class="bg-[#063B00]/40 rounded-xl p-6 sm:p-8 border border-[#266210] glow-border">
+              <div class="flex items-center gap-3 mb-6 pb-4 border-b border-[#266210]">
+                <svg class="w-5 h-5 text-[#90B800]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                </svg>
+                <h3 class="text-xl font-bold code-font text-[#E1E100]">Tools / Technologies</h3>
+              </div>
+              <!-- EDIT: TOOLS_LIST -->
+              <ul class="space-y-3 font-mono text-slate-300">
+                <!-- EDIT: TOOL_ITEM_1 -->
+                <li class="flex items-center gap-2">
+                  <span class="text-[#90B800]">&gt;</span>
+                  <span>Python</span>
+                </li>
+                <!-- EDIT: TOOL_ITEM_2 -->
+                <li class="flex items-center gap-2">
+                  <span class="text-[#90B800]">&gt;</span>
+                  <span>Jupyter Notebook</span>
+                </li>
+                <!-- EDIT: TOOL_ITEM_3 -->
+                <li class="flex items-center gap-2">
+                  <span class="text-[#90B800]">&gt;</span>
+                  <span>Git & GitHub</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center gap-3 mb-10">
+            <svg class="w-6 h-6 text-[#E1E100]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <h2 class="text-2xl sm:text-3xl font-bold code-font text-[#E1E100] tracking-wide">Contact</h2>
+            <div class="h-px bg-[#266210] flex-grow ml-4"></div>
+          </div>
+          <div class="bg-[#063B00]/40 rounded-xl p-6 sm:p-8 border border-[#266210] glow-border">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+              <!-- Email -->
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded bg-[#063B00] border border-[#266210] flex items-center justify-center text-[#E1E100]">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <span class="block text-xs font-mono text-[#90B800] uppercase tracking-wider">Email</span>
+                  <!-- EDIT: CONTACT_EMAIL -->
+                  <span class="text-slate-300 font-mono text-sm sm:text-base">darylvincentgonzales@gmail.com</span>
+                </div>
+              </div>
+              <!-- Contact Information -->
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded bg-[#063B00] border border-[#266210] flex items-center justify-center text-[#E1E100]">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <span class="block text-xs font-mono text-[#90B800] uppercase tracking-wider">Information</span>
+                  <!-- EDIT: CONTACT_INFO -->
+                  <span class="text-slate-300 font-mono text-sm sm:text-base">09289028885</span>
+                </div>
+              </div>
+              <!-- Social Link -->
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded bg-[#063B00] border border-[#266210] flex items-center justify-center text-[#E1E100]">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </div>
+                <div>
+                  <span class="block text-xs font-mono text-[#90B800] uppercase tracking-wider">Social</span>
+                  <!-- EDIT: SOCIAL_LINK -->
+                  <a href="https://www.linkedin.com/in/daryl-vincent-gonzales-57475920a/" target="_blank" class="text-slate-300 font-mono text-sm sm:text-base hover:text-[#E1E100] underline decoration-[#90B800] underline-offset-4 transition-colors"> LinkedIn Profile </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- Footer Section -->
+      <footer class="mt-auto border-t border-[#266210] bg-[#063B00]/70 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[#90B800] animate-pulse"></span>
+            <span>SYSTEM: READY</span>
+          </div>
+          <div class="text-center sm:text-right">
+            <span>&copy; <span class="text-[#E1E100]">FCBPortfolio</span>. All rights reserved. </span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
